@@ -21,13 +21,13 @@
     }
 
     const domBannerBlock = document.querySelector('#banner');
-    const elemPicture = document.createElement('img');
-    elemPicture.setAttribute('src', urlBannerPicture);
-    elemPicture.setAttribute('title', '');
-    elemPicture.setAttribute('alt', '');
-    domBannerBlock.prepend(elemPicture);
+    const domPicture = document.createElement('img');
+    domPicture.setAttribute('src', urlBannerPicture);
+    domPicture.setAttribute('title', '');
+    domPicture.setAttribute('alt', '');
+    domBannerBlock.prepend(domPicture);
 
-    setTimeout(() => hideBanner(domBannerBlock), bannerTtl * 1000);
+    setTimeout(() => hideBanner(domPicture), bannerTtl * 1000);
 </script>
 
 </body>

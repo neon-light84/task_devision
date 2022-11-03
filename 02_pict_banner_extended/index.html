@@ -36,14 +36,16 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur deserunt di
 
 
 <script type="text/javascript">
-    const urlBannerPicture = 'banner.png';
+    const urlBannerCode = 'https://any-url.com/bla/bla/bla.php?token=834953jk5lh3k4j6h5&banner_id=124345';
     const bannerTtl = 30; // в секундах
 
     async function getBannerByPartnerApi() {
         // Симуляция загрузки баннера от партнера. Мы заранее не знаем, что от туда прилетит,
         // но это будет кусок хтмл кода.
 
-        // Тут мог быть fetch и еще логика, определяющая успешность загрузки.
+        // Тут мог быть
+        // return fetch(urlBannerCode).then(..)
+        // и еще логика, определяющая успешность загрузки.
         // В реальности, это была бы долго выполняющаяся функция.
         return '<h3>Выбирайте нашу продукцию<h3><img src="banner.png" alt="" title="">';
     }
@@ -52,6 +54,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur deserunt di
         // варианты, как его скрыть. Выбрать один из них.
         domBlock.classList.add('_hidden');
         // domBlock.remove();
+        // domBlock.innerHTML = '';
     }
 
 
