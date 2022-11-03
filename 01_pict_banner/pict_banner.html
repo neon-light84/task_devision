@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Исчезающая картинка</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        ._hidden {
+            /*универсальный класс-скрывалка*/
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -11,13 +16,18 @@
 </div>
 
 <script type="text/javascript">
-    const urlBannerPicture = 'banner.png';
+    const urlBannerPicture = 'http://vote-back.pashok-holding.ru/banner.jpeg';
     const bannerTtl = 30; // в секундах
 
+    // вынесена отдельной функцией, для большей гибкости и solid-ности кода
     function hideBanner(domBlock) {
         // варианты, как его скрыть. Выбрать один из них.
         domBlock.classList.add('_hidden');
         // domBlock.remove();
+    }
+
+    function afterBannerLoad() {
+        setTimeout(() => hideBanner(domPicture), bannerTtl * 1000);
     }
 
     const domBannerBlock = document.querySelector('#banner');
@@ -25,9 +35,9 @@
     domPicture.setAttribute('src', urlBannerPicture);
     domPicture.setAttribute('title', '');
     domPicture.setAttribute('alt', '');
+    domPicture.setAttribute('onload', 'afterBannerLoad()');
     domBannerBlock.prepend(domPicture);
 
-    setTimeout(() => hideBanner(domPicture), bannerTtl * 1000);
 </script>
 
 </body>
